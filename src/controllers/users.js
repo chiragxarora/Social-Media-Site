@@ -3,13 +3,21 @@ const { genRandomUsername } = require('../utils/username')
 
 const createAnonUser = async () => {
     let name = genRandomUsername()
-    let check = Users.findAll({
+    let check = await Users.findAll({
         where: {
             username : name
         }
     })
-    while(check != 0){
-        name = name + '-' + Math.random() * 10001
+    while(true){
+        if(check == 0){
+            break;
+        }
+        name = name + '-' + Math.floor(Math.random() * 1001)
+        check = await Users.findAll({
+            where: {
+                username : name
+            }
+        })
     }
     const user = await Users.create({
         username : name
