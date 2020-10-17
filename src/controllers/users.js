@@ -26,6 +26,16 @@ const createAnonUser = async () => {
     return user
 }
 
+/* Test Code */
+
+// const task = async () => {
+//     console.log(await createAnonUser())
+//     console.log(await createAnonUser())
+//     console.log(await createAnonUser())
+// }
+
+// task()
+
 module.exports = {
     createAnonUser
 }
