@@ -22,10 +22,19 @@ const createAnonUser = async () => {
     const user = await Users.create({
         username : name
     })
-
     return user
 }
 
+const getAllUsers = async () => {
+    return await Users.findAll()
+}
+const getUserById = async (id) => {
+    return await Users.findOne({where : {id : id}})
+}
+
+const getUserByUsername = async (username) => {
+    return await Users.findOne({where : {username : username}})
+}
 /* Test Code */
 
 // const task = async () => {
@@ -37,5 +46,5 @@ const createAnonUser = async () => {
 // task()
 
 module.exports = {
-    createAnonUser
+    createAnonUser, getUserById, getUserByUsername, getAllUsers
 }
