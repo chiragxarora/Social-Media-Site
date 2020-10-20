@@ -1,4 +1,5 @@
 const { Posts, Users } = require('../db/models')
+const { Op } = require('sequelize')
 
 const createNewPost = async (userId, title, body) => {
     const post = await Posts.create({
@@ -17,7 +18,27 @@ const createNewPost = async (userId, title, body) => {
  *    if received object is empty, then we will show all the posts
  */
 
-const showAllPosts = async (query) => {
+const searchByText = async (pieceOfText) => {
+    return Posts.findAll({
+        where : {
+            [Op.or] : [
+                {
+                    title : {
+                        [Op.substring] : pieceOfText,
+                    }
+                },
+                {
+                    body : {
+                        [Op.substring] : pieceOfText,
+                    }
+                }
+            ]
+        
+        }
+    })
+}
+
+const showAllPosts = async () => {
     const posts = Posts.findAll({
         include : [Users]
     })
@@ -39,5 +60,5 @@ const showAllPosts = async (query) => {
 // task()
 
 module.exports = {
-    createNewPost, showAllPosts
+    createNewPost, showAllPosts, searchByText
 }
