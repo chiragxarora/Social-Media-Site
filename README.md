@@ -25,7 +25,7 @@ flush privileges;
 src
 ├── controllers         # functions to connect routes to db operations
 ├── db                  # db connection and model definitions
-├── public              # html/js/css files for static part of site
+├── public              # html/js/css files for frontend
 └── routes              # express middlewares (route wise)
 ```
 
