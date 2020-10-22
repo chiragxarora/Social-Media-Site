@@ -40,15 +40,16 @@ src
 ### Posts
 
 1. **create post**
-    this will create a new post, required fields are : 
-        - username (author of the post)
-        - title
-        - body
+    this will create a new post, required fields are 
+    - username (the author of this post)
+    - title
+    - body 
 
 2. **show all posts**
-    list all existing posts, we should have a following filtering support
-        - filter by username
-        - filter by title
+    list all existing posts, we should have following filtering support
+
+    - filter by username
+    - filter by query contained in title (search by title)
 
 3. **edit post**
     TBD
@@ -57,7 +58,7 @@ src
     TBD
 
 
-## Comments
+### Comments
 
 1. **show all comments (of a user)**
 
@@ -67,3 +68,40 @@ src
 
 
 
+## API Documentation 
+
+### `users` 
+
+1. `POST /users` 
+
+Creates a new user with random username and an user id
+
+2. `GET /users/{userid}`
+
+Get an user with a given user id
+
+3. `GET /users/{username}`
+
+Get an user with a given username
+
+
+### `posts` 
+
+1. `GET /posts` 
+
+Get all posts by everyone 
+
+2. `GET /posts/{text}` 
+
+Get all posts with {text} inside body or title
+
+3. `POST /posts` 
+
+Create a new post. 
+Required fields in body - 
+
+```
+userId=
+title=
+body=
+```
