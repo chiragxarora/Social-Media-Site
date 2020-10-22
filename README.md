@@ -20,15 +20,36 @@ flush privileges;
 
 ## Project Structure
 
+### Backend (Server)
 ```shell
 src
-├───controllers         # functions to connect routes to db
-├───db                  # db connection and models
-├───public              # html/css/js files for static part of website
-├───routes              # express middlewares route wise
-└───utils               # extra files needed for various functionalities
+├── controllers         # functions to connect routes to db operations
+├── db                  # db connection and model definitions
+├── public              # html/js/css files for static part of site
+└── routes              # express middlewares (route wise)
 ```
 
+### Frontend (Client Side Code)
+
+```shell
+src/public
+├── app                                     # our own frontend js code
+│   └── common.js
+├── components                              # own own html snippets
+│   └── navbar.html
+├── css                                     # css libraries we are using
+│   └── bootstrap.css
+├── fonts                                   # fonts that we are using
+│   ├── Muli-Italic.woff2
+│   ├── Muli.woff2
+│   └── muli.css
+├── index.html                              # first / home page
+└── js                                      # js libraries we are using
+    ├── bootstrap.js
+    ├── jquery-3.4.1.js
+    └── popper.js
+
+```
 ## Business Logic
 
 ### Users
