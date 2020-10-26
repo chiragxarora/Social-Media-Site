@@ -1,5 +1,5 @@
 #navbar {
-    background-color: blanchedalmond;
+    background-color: #dee2e6;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -9,12 +9,18 @@
 }
 
 #footer {
-    background-color: blanchedalmond;
+    background-color: #dee2e6;
     padding-top: 5px;
     padding-bottom: 5px;
 }
 li {
     float: left;
     padding: 10px;
+}
+
+#nav-username {
+    font-weight: bolder;
+    font-style: italic;
+    font-size: larger;
 }
 
