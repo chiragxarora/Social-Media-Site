@@ -18,6 +18,13 @@ const createNewPost = async (userId, title, body) => {
  *    if received object is empty, then we will show all the posts
  */
 
+const showAllPosts = async () => {
+    const posts = Posts.findAll({
+        include : [Users]
+    })
+    return posts
+}
+
 const searchByText = async (pieceOfText) => {
     return Posts.findAll({
         where : {
@@ -38,11 +45,12 @@ const searchByText = async (pieceOfText) => {
     })
 }
 
-const showAllPosts = async () => {
-    const posts = Posts.findAll({
-        include : [Users]
+const searchByUser = async (userId) => {
+    return Posts.findAll({
+        where : {
+            userId : userId
+        }
     })
-    return posts
 }
 
 /* Test code */
@@ -60,5 +68,5 @@ const showAllPosts = async () => {
 // task()
 
 module.exports = {
-    createNewPost, showAllPosts, searchByText
+    createNewPost, showAllPosts, searchByText, searchByUser
 }

@@ -1,13 +1,18 @@
 const route = require('express').Router()
-const { showAllPosts, createNewPost, searchByText } = require('../../controllers/posts')
+const { showAllPosts, createNewPost, searchByText, searchByUser } = require('../../controllers/posts')
 
 route.get('/', async (req, res) => {
     let posts = await showAllPosts()
     res.status(200).send(posts)
 })
 
-route.get('/:pieceOfText', async (req, res) => {
+route.get('/searchText/:pieceOfText', async (req, res) => {
     let posts = await searchByText(req.params.pieceOfText)
+    res.status(200).send(posts)
+})
+
+route.get('/searchUser/:userId', async (req, res) => {
+    let posts = await searchByUser(req.params.userId)
     res.status(200).send(posts)
 })
 
