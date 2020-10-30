@@ -47,6 +47,7 @@ const searchByText = async (pieceOfText) => {
 
 const searchByUser = async (userId) => {
     return Posts.findAll({
+        include : [Users],
         where : {
             userId : userId
         }
