@@ -1,5 +1,6 @@
 let navLinks = $('.navbar-nav .nav-link')
 navLinks.push($('.navbar-brand')[0])
+navLinks.push($('#searchQueryButton')[0])
 $(navLinks[0]).addClass('active')
 navLinks.click((ev) => {
     for(n of navLinks){
