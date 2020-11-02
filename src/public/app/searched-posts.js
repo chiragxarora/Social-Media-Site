@@ -4,7 +4,7 @@ function searchedPosts () {
         $('#searched-posts-heading').text('You must enter something to search!')
         return
     }
-    $('#searched-posts-heading').text(`You searched for ${val} : `)
+    $('#searched-posts-heading').text(`You searched for "${val}" : `)
     $.get(`/api/posts/searchText/${val}`, (posts) => {
         $('#my-posts-list').empty()
         if (posts.length===0) {
